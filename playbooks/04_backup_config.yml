@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - name: Backup running configuration
+      ios_config:
+        backup: yes
+        backup_options:
+          filename: "{{ inventory_hostname }}-config.txt"

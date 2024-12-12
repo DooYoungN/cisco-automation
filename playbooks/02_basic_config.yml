@@ -1,0 +1,15 @@
+---
+- hosts: all
+  tasks:
+    - name: Configure hostname
+      ios_hostname:
+        name: "{{ inventory_hostname }}"
+
+    - name: Configure domain name
+      ios_system:
+        domain-name: example.com
+
+    - name: Enable SSH
+      ios_config:
+        lines:
+          - ip ssh version 2

@@ -1,0 +1,14 @@
+---
+- hosts: switches
+  tasks:
+    - name: Create VLAN 10
+      ios_vlan:
+        vlan_id: 10
+        name: VLAN10
+        state: present
+
+    - name: Create VLAN 20
+      ios_vlan:
+        vlan_id: 20
+        name: VLAN20
+        state: present
