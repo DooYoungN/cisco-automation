@@ -59,11 +59,3 @@ This project automates various tasks using Cisco's DNA Center and Meraki APIs th
 
 - [Network Diagram](documentation/network_diagram.md)
 - [Testing Results](documentation/testing_results.md)
-
-## Contributing
-
-We welcome contributions! Please see our [contributing guidelines](CONTRIBUTING.md) for more details.
-
-## License
-
-This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.
