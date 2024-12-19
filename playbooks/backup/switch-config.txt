@@ -1,0 +1,139 @@
+Building configuration...
+
+Current configuration : 3106 bytes
+!
+! Last configuration change at 00:42:34 UTC Mon Mar 1 1993
+!
+version 15.0
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Switch
+!
+boot-start-marker
+boot-end-marker
+!
+!
+username cnit381 privilege 15 password 0 cnit381pass
+no aaa new-model
+system mtu routing 1530
+!
+!
+ip domain-name cnit381.local
+!
+!
+crypto pki trustpoint TP-self-signed-3767162496
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3767162496
+ revocation-check none
+ rsakeypair TP-self-signed-3767162496
+!
+!
+crypto pki certificate chain TP-self-signed-3767162496
+ certificate self-signed 01
+  3082022B 30820194 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33373637 31363234 3936301E 170D3933 30333031 30303033 
+  32325A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 37363731 
+  36323439 3630819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100C104 976C608F 7FE8C3BA 7DDFAE76 34276387 D2CDB040 454B9F05 4A9FC40C 
+  4DFD1737 CDE556E6 6CC1C995 B28D960C A5AB6539 FE7A92E3 8D6FCFD2 97A68EF1 
+  4F5DA198 CA4A7390 9F37BBD0 3F988B7F 9E5F10D2 B25E65BC 0B124A80 B666CA14 
+  AD7368CD 4A63ABB7 32C01065 25D509FF 86B16172 838F351D 85C86F5B E2621A0F 
+  76390203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 301F0603 
+  551D2304 18301680 1483A131 89548E35 1107C895 BFE1AC40 DB7364AE C5301D06 
+  03551D0E 04160414 83A13189 548E3511 07C895BF E1AC40DB 7364AEC5 300D0609 
+  2A864886 F70D0101 05050003 818100BA 02CF6A1B 4ABF6E07 03017FAC 7187D3F1 
+  3937E3E8 12C37556 99124C41 7FF5AD48 CD9D1118 2A689C8A 286B6642 949B449E 
+  81BDD85C 4F997083 483D20A4 CD42A5EB D1D724BA E913D12F E88C718A EC28F2EA 
+  E448CEB0 238D701E 644F5E1E 5C47C0A6 22346168 22C1405A 94692F80 DB333F40 
+  91894088 9C82CEDD 6AFEDAE9 1063B1
+  	quit
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+ip ssh version 2
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+ switchport mode access
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ ip address 192.168.1.2 255.255.255.0
+!
+ip default-gateway 192.168.1.1
+ip http server
+ip http secure-server
+!
+!
+line con 0
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login
+!
+end

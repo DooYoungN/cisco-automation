@@ -1,15 +1,25 @@
 ---
-- hosts: all
-  tasks:
-    - name: Configure hostname
-      ios_hostname:
-        name: "{{ inventory_hostname }}"
+- name: Network Configuration
+  hosts: router
+  gather_facts: false  # Consider enabling for initial configuration
+  vars:
+    ansible_user: cnit381
+    ansible_password: cnit381pass
+    ansible_become: yes
+    ansible_become_password: cnit381pass
+    ansible_connection: network_cli  # Explicitly define the connection type
 
-    - name: Configure domain name
-      ios_system:
-        domain-name: example.com
+  tasks:
+    - name: Change hostname
+      cisco.ios.ios_config:
+        lines:
+          - hostname {{ inventory_hostname }}  # Use inventory_hostname variable
+
+    - name: Change domain name
+      cisco.ios.ios_system:
+        domain_name: cnit381.com
 
     - name: Enable SSH
-      ios_config:
+      cisco.ios.ios_config:
         lines:
           - ip ssh version 2

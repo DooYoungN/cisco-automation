@@ -1,8 +1,11 @@
 ---
 - hosts: all
+  connection: network_cli 
+  become: yes 
+
   tasks:
     - name: Backup running configuration
-      ios_config:
+      cisco.ios.ios_config:
         backup: yes
         backup_options:
           filename: "{{ inventory_hostname }}-config.txt"

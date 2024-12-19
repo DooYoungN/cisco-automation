@@ -1,14 +1,17 @@
 ---
-- hosts: switches
-  tasks:
-    - name: Create VLAN 10
-      ios_vlan:
-        vlan_id: 10
-        name: VLAN10
-        state: present
+- name: Create VLANS
+  hosts: switches
+  gather_facts: no
+  connection: network_cli
+  become_method: enable
 
-    - name: Create VLAN 20
-      ios_vlan:
-        vlan_id: 20
-        name: VLAN20
-        state: present
+  tasks:
+    - name: Create VLANs 10-30
+      cisco.ios.ios_vlans:
+        config:
+        - name: Management
+          vlan_id: 10
+        - name: Sales
+          vlan_id: 20
+        - name: Marketing
+          vlan_id: 30

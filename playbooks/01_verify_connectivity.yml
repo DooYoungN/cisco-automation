@@ -1,5 +1,12 @@
 ---
-- hosts: all
+
+- name: TEST CONNECTIVITY TO DEVICES
+  hosts: all
+  gather_facts: false
+  connection: network_cli
+  become_method: enable
+
   tasks:
-    - name: Ping all devices
-      ios_ping:
+    - name: PING Devices
+      ansible.builtin.ping:
+        data: "PING"
